@@ -29,8 +29,8 @@ def light_off(bot,update):
       bot.send_message(chat_id,text=str)
       bot.send_photo(chat_id,photo="https://ak.picdn.net/shutterstock/videos/2860753/thumb/1.jpg")
 
-tele_api = os.getenv("telegram_api")
-updater = Updater("tele_api")
+#tele_api = os.getenv("telegram_api")
+updater = Updater("1116113868:AAGpjuLnhS19HgkJ1W8R5zZahtghy8augV4")
 dispatch = updater.dispatcher
 commandhandler1 = CommandHandler("off",light_off)
 commandhandler2 = CommandHandler("on",light_on)
