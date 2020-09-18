@@ -3,10 +3,11 @@ pip install adafruit-io
 
 from telegram.ext import Updater,CommandHandler
 from Adafruit_IO import Client, Feed,Data
+impoort os
 
 def adafruit_auth(n):
-    x = os.getenv("Naveen_bot")  #ADAFRUIT_IO_USERNAME
-    y = "aio_cOfV317B8P3HV1As5HbJDWT1pvmC"    #ADAFRUIT_IO_KEY
+    x = os.getenv("ADAFRUIT_IO_USERNAME")  #ADAFRUIT_IO_USERNAME
+    y = os.getenv("ADAFRUIT_IO_KEY")    #ADAFRUIT_IO_KEY
     aio = Client(x,y)
     if n==1:
       test = aio.feeds('foo')
