@@ -17,6 +17,7 @@ def adafruit_auth(n):
       aio.send_data(test.key, 0)
 def light_on(bot,update):
     str = "light on"
+    print(str)
     adafruit_auth(1)
     chat_id=update.effective_chat.id
     bot.send_message(chat_id,text=str)
@@ -24,6 +25,7 @@ def light_on(bot,update):
 
 def light_off(bot,update):
       str = "light off"
+      print(str)
       adafruit_auth(0)
       chat_id=update.effective_chat.id
       bot.send_message(chat_id,text=str)
@@ -31,6 +33,7 @@ def light_off(bot,update):
 
 tele_api = os.getenv("telegram_api")
 updater = Updater("1116113868:AAGpjuLnhS19HgkJ1W8R5zZahtghy8augV4")
+print("crossed the updater")
 dispatch = updater.dispatcher
 commandhandler1 = CommandHandler("off",light_off)
 commandhandler2 = CommandHandler("on",light_on)
