@@ -3,7 +3,7 @@
 
 from telegram.ext import Updater,CommandHandler
 from Adafruit_IO import Client, Feed,Data
-impoort os
+import os
 
 def adafruit_auth(n):
     x = os.getenv("ADAFRUIT_IO_USERNAME")  #ADAFRUIT_IO_USERNAME
