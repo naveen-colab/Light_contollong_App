@@ -1,9 +1,12 @@
+pip install python-telegram-bot
+pip install adafruit-io
+
 from telegram.ext import Updater,CommandHandler
 from Adafruit_IO import Client, Feed,Data
 
 def adafruit_auth(n):
-    x = "Naveen_bot"   #ADAFRUIT_IO_USERNAME
-    y = "aio_hQRr84atT81tRI8reNF4Uo95qVmU"    #ADAFRUIT_IO_KEY
+    x = os.getenv("Naveen_bot")  #ADAFRUIT_IO_USERNAME
+    y = "aio_cOfV317B8P3HV1As5HbJDWT1pvmC"    #ADAFRUIT_IO_KEY
     aio = Client(x,y)
     if n==1:
       test = aio.feeds('foo')
@@ -11,15 +14,19 @@ def adafruit_auth(n):
     else:
       test = aio.feeds('foo')
       aio.send_data(test.key, 0)
-def light_on(context,update):
+def light_on(bot,update):
     str = "light on"
     adafruit_auth(1)
-    context.send_message(chat_id=update.effective_chat.id,text=str)
+    chat_id=update.effective_chat.id
+    bot.send_message(chat_id,text=str)
+    bot.send_photo(chat_id,photo="https://static.scientificamerican.com/sciam/cache/file/2B38DE31-C1D3-4339-8808D61972976EE4.jpg")
 
-def light_off(context,update):
+def light_off(bot,update):
       str = "light off"
       adafruit_auth(0)
-      context.send_message(chat_id=update.effective_chat.id,text=str)
+      chat_id=update.effective_chat.id
+      bot.send_message(chat_id,text=str)
+      bot.send_photo(chat_id,photo="https://ak.picdn.net/shutterstock/videos/2860753/thumb/1.jpg")
 
 updater = Updater("1116113868:AAGpjuLnhS19HgkJ1W8R5zZahtghy8augV4")
 dispatch = updater.dispatcher
