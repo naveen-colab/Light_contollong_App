@@ -10,10 +10,10 @@ def adafruit_auth(n):
     y = os.getenv("ADAFRUIT_IO_KEY")    #ADAFRUIT_IO_KEY
     aio = Client(x,y)
     if n==1:            #light on condtion 
-      test = aio.feeds('light_status')
+      test = aio.feeds('foo')
       aio.send_data(test.key, 10)
     else:               #light off condition
-      test = aio.feeds('light_status')
+      test = aio.feeds('foo')
       aio.send_data(test.key, 0)
 def light_on(bot,update):   #light on function
     str = "light on"
