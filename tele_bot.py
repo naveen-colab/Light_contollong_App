@@ -35,8 +35,8 @@ def light_off(bot,update):      #light off function
 updater = Updater("1116113868:AAGpjuLnhS19HgkJ1W8R5zZahtghy8augV4")
 print("crossed the updater")
 dispatch = updater.dispatcher
-commandhandler1 = CommandHandler("light off",light_off)
-commandhandler2 = CommandHandler("light on",light_on)
+commandhandler1 = CommandHandler("lightoff",light_off)
+commandhandler2 = CommandHandler("lighton",light_on)
 dispatch.add_handler(commandhandler1)
 dispatch.add_handler(commandhandler2)
 updater.start_polling()
